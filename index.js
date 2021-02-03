@@ -12,34 +12,37 @@ siteler.forEach((site) => {
 	request(site)
 		.on("response", function (response) {
 			if (response.statusCode == 200) {
-				//console.log( "✅️ "+ colors.bgGreen(response.statusCode) +": "+ site)
-				acilan++;
 				finished++;
+				console.log( finished + " ✅️ "+ colors.bgGreen(response.statusCode) +": "+ site)
+				acilan++;
+
 				finishedArray.push(site);
 				logLeft();
 				outputResults();
 			} else if (String(response.statusCode).startsWith("5")) {
+finished++;
 				console.log(
-					"❌️ " + colors.bgYellow(response.statusCode + ": " + site)
+					finished + " ❌️ " + colors.bgYellow(response.statusCode + ": " + site)
 				);
 				hatali++;
-				finished++;
+				
 				finishedArray.push(site);
 				logLeft();
 				outputResults();
 			} else {
-				console.log("❌️ " + colors.bgRed(response.statusCode + ": " + site));
-				hatali++;
 				finished++;
+				console.log(finished + " ❌️ " + colors.bgRed(response.statusCode + ": " + site));
+				hatali++;
+
 				finishedArray.push(site);
 				logLeft();
 				outputResults();
 			}
 		})
 		.on("error", function (err) {
-			console.log("Problem reaching URL: ", colors.bgRed(site));
+finished++;
+			console.log(finished + " Problem reaching URL: ", colors.bgRed(site));
 			hatali++;
-			finished++;
 			finishedArray.push(site);
 			logLeft();
 			outputResults();
@@ -56,5 +59,7 @@ function outputResults() {
 }
 
 function logLeft() {
+//console.log("\n");
 	//console.log(JSON.stringify(siteler.filter(_=>!finishedArray.includes(_))))
+//console.log("\n");
 }
