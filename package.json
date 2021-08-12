@@ -1,15 +1,34 @@
 {
-  "name": "serbay-tum-isler-kontrol",
+  "name": "places-scraper",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "watch": "nodemon"
   },
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kod8/serbay-tum-isler-kontrol.git"
+  },
+  "author": "abdullah",
+  "license": "UNLICENSED",
+  "homepage": "https://github.com/kod8/serbay-tum-isler-kontrol#readme",
   "dependencies": {
     "colors": "^1.4.0",
-    "request": "^2.88.2"
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1",
+    "serve-index": "^1.9.1",
+    "socket.io": "^3.0.0"
+  },
+  "nodemonConfig": {
+    "delay": 1000,
+    "ignore": [
+      ".git/*",
+      "misc/*",
+      "public/*",
+      "public/scrapedData/*"
+    ]
   }
 }
